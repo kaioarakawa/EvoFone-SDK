@@ -77,7 +77,8 @@ class FoneEvo
             'base_uri' => 'https://evo.fone.ninja/',
             'http_errors' => false,
             'headers' => [
-                'Authorization' => 'Bearer '.$this->apiKey,
+//                'Authorization' => 'Bearer '.$this->apiKey,
+                'apikey' => $this->apiKey,
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
                 'User-Agent' => 'Laravel FoneEvo PHP/3.0',
