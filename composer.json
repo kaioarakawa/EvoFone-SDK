@@ -1,6 +1,7 @@
 {
-    "name": "laravel/forge-sdk",
-    "description": "The Laravel Evoluition Fone Ninja PHP SDK.",
+    "name": "kaioarakawa/evofone-sdk",
+    "description": "A SDK for interacting with Evolution API",
+    "type": "library",
     "keywords": ["laravel", "EvoFone"],
     "license": "MIT",
 
