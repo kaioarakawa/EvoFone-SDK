@@ -14,7 +14,7 @@ trait ManagesInstances
      */
     public function createInstance(array $data) : Instance
     {
-        $response = $this->post('/instance/create', $data);
+        $response = $this->post('/instance/create', ['json' => $data]);
 
         // Parse the "instance" data from the response
         $instanceData = $response['instance'];
