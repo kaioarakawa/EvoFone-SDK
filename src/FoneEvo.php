@@ -9,6 +9,7 @@ class FoneEvo
     use Actions\ManagesInstances,
         Actions\ManagesMessage,
         Actions\ManagesChat,
+        Actions\ManagesGroups,
         MakesHttpRequests;
 
     /**
