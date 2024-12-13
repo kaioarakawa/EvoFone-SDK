@@ -10,9 +10,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static \EvoFone\FoneEvo setTimeout(int $timeout)
  * @method static int getTimeout()
  * @method static \EvoFone\Resources\Instance createInstance(array $data)
-// * @method static \EvoFone\Resources\Server[] servers()
-// * @method static \EvoFone\Resources\Server server(string $serverId)
-// * @method static \EvoFone\Resources\Server createServer(array $data, bool $wait = false, int $timeout = 900)
+ * @method static \EvoFone\Resources\CheckWP[] getContactStatuses(string $instanceName, array $numbers)
+ * @method static \EvoFone\Resources\TextMessage sendTextMessage(array $data)
  * @see \EvoFone\FoneEvo
  */
 class FoneEvo extends Facade
