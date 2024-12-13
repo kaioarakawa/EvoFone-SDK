@@ -7,6 +7,8 @@ use GuzzleHttp\Client as HttpClient;
 class FoneEvo
 {
     use Actions\ManagesInstances,
+        Actions\ManagesMessage,
+        Actions\ManagesChat,
         MakesHttpRequests;
 
     /**
