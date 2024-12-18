@@ -33,20 +33,29 @@ trait ManagesGroups
         return $groups;
     }
 
-    public function updateSetting(string $instanceName, string $groupJid) : bool
+    public function updateSetting(array $data) : bool
     {
-        if (empty($instanceName)) {
+        // Ensure instanceName and number are passed
+        if (empty($data['instanceName'])) {
             throw new \InvalidArgumentException('The "instanceName" field is required.');
         }
 
-        if (empty($groupJid)) {
-            throw new \InvalidArgumentException('The "groupJid" field is required.');
+        if (empty($data['groupJid'])) {
+            throw new \InvalidArgumentException('The "number" field is required.');
         }
 
-        $endpoint = "/group/updateSetting/{$instanceName}?groupJid={$groupJid}";
+        if (empty($data['action'])) {
+            throw new \InvalidArgumentException('The "text" field is required.');
+        }
+
+        $payload = [
+            'action' => $data['action'],
+        ];
+
+        $endpoint = "/group/updateSetting/{$data['instanceName']}?groupJid={$data['groupJid']}";
 
         // Make the POST request
-        $response = $this->post($endpoint);
+        $response = $this->put($endpoint, $payload);
 
         dd($response);
 
