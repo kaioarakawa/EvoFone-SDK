@@ -32,4 +32,24 @@ trait ManagesGroups
 
         return $groups;
     }
+
+    public function updateSetting(string $instanceName, string $groupJid) : bool
+    {
+        if (empty($instanceName)) {
+            throw new \InvalidArgumentException('The "instanceName" field is required.');
+        }
+
+        if (empty($groupJid)) {
+            throw new \InvalidArgumentException('The "groupJid" field is required.');
+        }
+
+        $endpoint = "/group/updateSetting/{$instanceName}?groupJid={$groupJid}";
+
+        // Make the POST request
+        $response = $this->post($endpoint);
+
+        dd($response);
+
+        return true;
+    }
 }

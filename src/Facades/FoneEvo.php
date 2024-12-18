@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \EvoFone\Resources\CheckWP[] getContactStatuses(string $instanceName, array $numbers)
  * @method static \EvoFone\Resources\TextMessage sendTextMessage(array $data)
  * @method static \EvoFone\Resources\Group[] getAllGroups(string $instanceName, bool $getParticipants)
+ * @method static bool updateSetting(string $instanceName, bool $groupJid)
  * @see \EvoFone\FoneEvo
  */
 class FoneEvo extends Facade
