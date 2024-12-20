@@ -15,23 +15,20 @@ trait ManagesMessage
      * @throws \InvalidArgumentException
      * @throws InvalidWhatsAppNumberException
      */
-    public function sendTextMessage(array $data): TextMessage
+    public function sendTextMessage(string $instanceName, string $number, string $text): TextMessage
     {
         // Ensure instanceName and number are passed
-        if (empty($data['instanceName'])) {
+        if (empty($instanceName)) {
             throw new \InvalidArgumentException('The "instanceName" field is required.');
         }
 
-        if (empty($data['number'])) {
+        if (empty($number)) {
             throw new \InvalidArgumentException('The "number" field is required.');
         }
 
-        if (empty($data['text'])) {
+        if (empty($text)) {
             throw new \InvalidArgumentException('The "text" field is required.');
         }
-
-        $instanceName = $data['instanceName'];
-        $number = $data['number'];
 
         // Check if the number exists on WhatsApp
         $contactStatuses = $this->getContactStatuses($instanceName, [$number]);
@@ -44,7 +41,7 @@ trait ManagesMessage
         $payload = [
             'number' => $number,
             'textMessage' => [
-                'text' => $data['text'],
+                'text' => $text,
             ],
         ];
 
