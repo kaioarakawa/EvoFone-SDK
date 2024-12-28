@@ -19,7 +19,7 @@ trait ManagesGroups
             throw new \InvalidArgumentException('The "instanceName" field is required.');
         }
 
-        $endpoint = "/group/fetchAllGroups/{$instanceName}?getParticipants={$getParticipants}";
+        $endpoint = "/group/fetchAllGroups/{$instanceName}?getParticipants=" . var_export($getParticipants, true);
 
         // Make the POST request
         $response = $this->get($endpoint);

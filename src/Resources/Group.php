@@ -102,14 +102,14 @@ class Group extends Resource
 
         $this->id = $attributes['id'];
         $this->subject = $attributes['subject'];
-        $this->subjectOwner = $attributes['subjectOwner'];
+        $this->subjectOwner = $attributes['subjectOwner'] ?? null;
         $this->subjectTime = $attributes['subjectTime'];
         $this->pictureUrl = $attributes['pictureUrl'] ?? null;
         $this->size = $attributes['size'];
         $this->creation = $attributes['creation'];
-        $this->owner = $attributes['owner'];
-        $this->desc = $attributes['desc'];
-        $this->descId = $attributes['descId'];
+        $this->owner = $attributes['owner'] ?? null;
+        $this->desc = $attributes['desc'] ?? null;
+        $this->descId = $attributes['descId'] ?? null;
         $this->restrict = $attributes['restrict'];
         $this->announce = $attributes['announce'];
     }
