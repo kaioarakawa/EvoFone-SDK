@@ -40,9 +40,7 @@ trait ManagesMessage
         $endpoint = "/message/sendText/{$instanceName}";
         $payload = [
             'number' => $number,
-            'textMessage' => [
-                'text' => $text,
-            ],
+            'text' => $text,
         ];
 
         // Send the request

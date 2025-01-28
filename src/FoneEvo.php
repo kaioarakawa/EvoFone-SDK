@@ -77,7 +77,7 @@ class FoneEvo
         $this->apiKey = $apiKey;
 
         $this->guzzle = $guzzle ?: new HttpClient([
-            'base_uri' => 'https://evo.fone.ninja/',
+            'base_uri' => 'https://evo2.fone.ninja/',
             'http_errors' => false,
             'headers' => [
 //                'Authorization' => 'Bearer '.$this->apiKey,

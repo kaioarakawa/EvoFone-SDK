@@ -55,6 +55,6 @@ trait ManagesGroups
         $endpoint = "/group/updateSetting/{$instanceName}?groupJid={$groupJid}";
 
         // Make the POST request
-        $this->put($endpoint, $payload);
+        $this->post($endpoint, $payload);
     }
 }

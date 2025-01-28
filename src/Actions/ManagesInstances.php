@@ -15,14 +15,16 @@ trait ManagesInstances
     public function createInstance(string $instanceName, string $number, string $webhook) : Instance
     {
         $instanceRequest = [
-            'instanceName' => $instanceName,
-            'number'       => $number, // Opcional
-            'qrcode'       => true, // Opcional
-            'integration'  => 'WHATSAPP-BAILEYS',
-            'groupsIgnore' => false,
-            'webhook'      => $webhook,
-            'events'       => [
-                'MESSAGES_UPSERT',
+            'instanceName'  => $instanceName,
+            'number'        => $number, // Opcional
+            'qrcode'        => true, // Opcional
+            'integration'   => 'WHATSAPP-BAILEYS',
+            'groupsIgnore'  => false,
+            'webhook' => [
+                'url'    => $webhook,
+                'events' => [
+                    'MESSAGES_UPSERT',
+                ]
             ],
         ];
 
