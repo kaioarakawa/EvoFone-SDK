@@ -7,13 +7,6 @@ use EvoFone\FoneEvo;
 class Instance extends Resource
 {
     /**
-     * The ID of the instance.
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * The name of the instance.
      *
      * @var string
@@ -21,11 +14,11 @@ class Instance extends Resource
     public $instanceName;
 
     /**
-     * The integration type of the instance.
+     * The ID of the instance.
      *
      * @var string
      */
-    public $integration;
+    public $instanceId;
 
     /**
      * The webhook for WhatsApp Business.
@@ -49,11 +42,11 @@ class Instance extends Resource
     public $status;
 
     /**
-     * The pairing code and QR code information.
+     * The hash information for the instance.
      *
-     * @var array|null
+     * @var array
      */
-    public $qrcode;
+    public $hash;
 
     /**
      * Instance settings.
@@ -61,13 +54,6 @@ class Instance extends Resource
      * @var array
      */
     public $settings;
-
-    /**
-     * The hash information for the instance.
-     *
-     * @var array
-     */
-    public $hash;
 
     /**
      * Create a new Instance resource.
@@ -79,15 +65,15 @@ class Instance extends Resource
     {
         parent::__construct($attributes, $foneEvo);
 
-        $this->instanceId = $attributes['instanceId'];
-        $this->instanceName = $attributes['instanceName'];
-        $this->integration = $attributes['integration'];
-        $this->webhookWaBusiness = $attributes['webhook_wa_business'] ?? null;
-        $this->accessTokenWaBusiness = $attributes['access_token_wa_business'] ?? '';
-        $this->status = $attributes['status'];
-        $this->qrcode = $attributes['qrcode'] ?? null;
-        $this->settings = $attributes['settings'] ?? [];
-        $this->hash = $attributes['hash'] ?? [];
-    }
+        $instance = $attributes['instance'] ?? [];
 
+        $this->instanceName = $instance['instanceName'] ?? '';
+        $this->instanceId = $instance['instanceId'] ?? '';
+        $this->webhookWaBusiness = $instance['webhook_wa_business'] ?? null;
+        $this->accessTokenWaBusiness = $instance['access_token_wa_business'] ?? '';
+        $this->status = $instance['status'] ?? '';
+
+        $this->hash = $attributes['hash'] ?? [];
+        $this->settings = $attributes['settings'] ?? [];
+    }
 }
