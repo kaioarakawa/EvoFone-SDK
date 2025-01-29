@@ -91,6 +91,27 @@ class Group extends Resource
     public $announce;
 
     /**
+     * Whether the group is announcement-only.
+     *
+     * @var bool
+     */
+    public $isCommunity;
+
+    /**
+     * Whether the group is announcement-only.
+     *
+     * @var bool
+     */
+    public $isCommunityAnnounce;
+
+    /**
+     * Instance settings.
+     *
+     * @var array
+     */
+    public $participants;
+
+    /**
      * Create a new Group resource.
      *
      * @param  array  $attributes
@@ -112,5 +133,8 @@ class Group extends Resource
         $this->descId = $attributes['descId'] ?? null;
         $this->restrict = $attributes['restrict'];
         $this->announce = $attributes['announce'];
+        $this->isCommunity = $attributes['isCommunity'];
+        $this->isCommunityAnnounce = $attributes['isCommunityAnnounce'];
+        $this->participants = $attributes['participants'] ?? [];
     }
 }
