@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Facade;
  * @method static \EvoFone\Resources\TextMessage sendTextMessage(string $instanceName, string $number, string $text)
  * @method static \EvoFone\Resources\Group[] getAllGroups(string $instanceName, bool $getParticipants)
  * @method static void updateSetting(string $instanceName, string $groupJid, string $action)
+ * @method static void updateGroupUsers(string $instanceName, string $groupJid, string $action, array $participants)
+ * @method static bool setSettings(string $instanceName)
+ * @method static bool startFlow(string $instanceName, string $url, string $typebot, string $jid, array $variables = [])
  * @see \EvoFone\FoneEvo
  */
 class FoneEvo extends Facade

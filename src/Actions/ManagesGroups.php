@@ -57,4 +57,22 @@ trait ManagesGroups
         // Make the POST request
         $this->post($endpoint, $payload);
     }
+
+    public function updateGroupUsers(string $instanceName, string $groupJid,string $action, array $participants) : void
+    {
+        // Ensure instanceName and number are passed
+        if (empty($participants)) {
+            throw new \InvalidArgumentException('Need to has one or more participants.');
+        }
+
+        $payload = [
+            'action' => $action,
+            'participants' => $participants,
+        ];
+
+        $endpoint = "/group/updateSetting/{$instanceName}?groupJid={$groupJid}";
+
+        // Make the POST request
+        $this->post($endpoint, $payload);
+    }
 }
