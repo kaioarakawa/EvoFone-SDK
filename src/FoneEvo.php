@@ -10,6 +10,7 @@ class FoneEvo
         Actions\ManagesMessage,
         Actions\ManagesChat,
         Actions\ManagesGroups,
+        Actions\ManagesTypebot,
         MakesHttpRequests;
 
     /**
