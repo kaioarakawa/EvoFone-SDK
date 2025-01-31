@@ -70,7 +70,7 @@ trait ManagesGroups
             'participants' => $participants,
         ];
 
-        $endpoint = "/group/updateSetting/{$instanceName}?groupJid={$groupJid}";
+        $endpoint = "/group/updateParticipant/{$instanceName}?groupJid={$groupJid}";
 
         // Make the POST request
         $this->post($endpoint, $payload);
