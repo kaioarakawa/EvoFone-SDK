@@ -12,25 +12,28 @@ trait ManagesInstances
      * @param  array  $data
      * @return \EvoFone\Resources\Instance
      */
-    public function createInstance(string $instanceName, string $number, string $webhook) : Instance
+    public function createInstance(string $instanceName, ?string $number, string $webhook) : Instance
     {
         $instanceRequest = [
             'instanceName'  => $instanceName,
-            'number'        => $number, // Opcional
-            'qrcode'        => true, // Opcional
+            'qrcode'        => true,
             'integration'   => 'WHATSAPP-BAILEYS',
             'groupsIgnore'  => false,
             'webhook' => [
                 'url'    => $webhook,
                 'events' => [
                     'MESSAGES_UPSERT',
-                ]
+                ],
             ],
         ];
 
+        // Só adiciona 'number' se não for null ou vazio
+        if (!empty($number)) {
+            $instanceRequest['number'] = $number;
+        }
+
         $response = $this->post('/instance/create', ['json' => $instanceRequest]);
 
-        // Parse the "instance" data from the response
         $instanceData = $response['instance'];
         $instanceData['qrcode'] = $response['qrcode'] ?? null;
         $instanceData['settings'] = $response['settings'] ?? [];
@@ -38,6 +41,7 @@ trait ManagesInstances
 
         return new Instance($instanceData, $this);
     }
+
 
     public function deleteInstance(string $instanceName) : bool
     {
